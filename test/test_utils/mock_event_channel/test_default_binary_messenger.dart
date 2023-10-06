@@ -6,7 +6,6 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import './mock_event_channel.dart';
 
 /// Extension on [TestDefaultBinaryMessenger] to provide a mock method call
 // TODO(future-dev): Remove when pipeline support for Dart 2.19 is added.

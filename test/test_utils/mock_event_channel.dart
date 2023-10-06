@@ -1,6 +1,5 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'mock_event_channel/mock_event_channel.dart';
 
 class MockEventChannel {
   MockEventChannel({
@@ -8,7 +7,7 @@ class MockEventChannel {
     required this.data,
     this.exceptions = const [],
   }) {
-    TestDefaultBinaryMessengerBinding.instance!.defaultBinaryMessenger
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockStreamHandler(eventChannel, _handler());
   }
 
