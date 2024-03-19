@@ -59,6 +59,7 @@ internal class MethodCallHandler : MethodCallHandler {
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
         when (call.method) {
             "start" -> start(call, result)
+            "stop" -> stop(result)
             else -> result.notImplemented()
         }
     }
@@ -76,6 +77,20 @@ internal class MethodCallHandler : MethodCallHandler {
             context?.let {
                 TalsecThreatHandler.start(it, talsecConfig)
             } ?: throw IllegalStateException("Unable to run Talsec - context is null")
+            result.success(null)
+        }
+    }
+
+    /**
+     * Stops freeRASP
+     *
+     * @param result The result handler of the method call.
+     */
+    private fun stop(result: MethodChannel.Result) {
+        runResultCatching(result) {
+            context?.let {
+                TalsecThreatHandler.stop(it)
+            } ?: throw IllegalStateException("Unable to stop Talsec - context is null")
             result.success(null)
         }
     }
