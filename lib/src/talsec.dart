@@ -106,6 +106,11 @@ class Talsec {
     );
   }
 
+  /// Stops freeRASP.
+  Future<void> stop() {
+    return methodChannel.invokeMethod('stop');
+  }
+
   void _checkConfig(TalsecConfig config) {
     // ignore: missing_enum_constant_in_switch
     switch (defaultTargetPlatform) {
