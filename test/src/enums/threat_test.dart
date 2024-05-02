@@ -28,19 +28,16 @@ void main() {
     'ThreatX.fromString should return correct Threat enum for '
     'valid String value',
     () {
-      expect(ThreatX.fromString('debug'), Threat.debug);
-      expect(ThreatX.fromString('hooks'), Threat.hooks);
-      expect(ThreatX.fromString('passcode'), Threat.passcode);
-      expect(ThreatX.fromString('deviceId'), Threat.deviceId);
-      expect(ThreatX.fromString('simulator'), Threat.simulator);
-      expect(ThreatX.fromString('appIntegrity'), Threat.appIntegrity);
-      expect(ThreatX.fromString('deviceBinding'), Threat.deviceBinding);
-      expect(ThreatX.fromString('unofficialStore'), Threat.unofficialStore);
-      expect(ThreatX.fromString('privilegedAccess'), Threat.privilegedAccess);
-      expect(
-        ThreatX.fromString('secureHardwareNotAvailable'),
-        Threat.secureHardwareNotAvailable,
-      );
+      expect(ThreatX.fromInt(1268968002), Threat.debug);
+      expect(ThreatX.fromInt(209533833), Threat.hooks);
+      expect(ThreatX.fromInt(1293399086), Threat.passcode);
+      expect(ThreatX.fromInt(1514211414), Threat.deviceId);
+      expect(ThreatX.fromInt(477190884), Threat.simulator);
+      expect(ThreatX.fromInt(1115787534), Threat.appIntegrity);
+      expect(ThreatX.fromInt(1806586319), Threat.deviceBinding);
+      expect(ThreatX.fromInt(629780916), Threat.unofficialStore);
+      expect(ThreatX.fromInt(44506749), Threat.privilegedAccess);
+      expect(ThreatX.fromInt(1564314755), Threat.secureHardwareNotAvailable);
     },
   );
 
@@ -48,7 +45,7 @@ void main() {
     'ThreatX.fromString should throw TalsecException for invalid String value',
     () {
       expect(
-        () => ThreatX.fromString('passcodeChange'),
+        () => ThreatX.fromInt(1),
         throwsA(isA<TalsecException>()),
       );
     },
